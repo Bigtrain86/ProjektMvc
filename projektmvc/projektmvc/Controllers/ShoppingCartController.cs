@@ -12,7 +12,15 @@ namespace projektmvc.Controllers
         // GET: ShoppingCart
         public ActionResult ShoppingCart()
         {
-            return View();
+            if (Session["Cart"] != null)
+            {
+                List<OrderItem> orderedItems = (List<OrderItem>)Session["Cart"];
+
+                return View(orderedItems);
+            }
+            return View("Products");
+           
+            
         }
 
         public ActionResult AddToCart(string productId, string productName, string productPrice)
@@ -36,21 +44,32 @@ namespace projektmvc.Controllers
             }
 
             //Kolla om id:t redan finns i ordern
+            //I så fall, kolla om det finns fler produkter av den typen och öka isf
             foreach (OrderItem item in orderedItems)
             {
                 if (item.Id == id)
                 {
                     inCart = true;
-                    break;
+
+                    if (item.Numbers <= NumInStock)
+                    {
+                        item.Numbers++;
+                        break;
+                    }
+                    else
+                    {
+                        //Om det inte fanns fler på lager
+                        //Gör något 
+                    }
+                    
                 }
             }
 
             if (!inCart)
             {
                 orderedItems.Add(new OrderItem(id, productName, price, 1));
-                Session["Cart"] = orderedItems;
             }
-
+            Session["Cart"] = orderedItems;
 
             //OrderItem itemToBuy = new OrderItem(id, productName, price, 1);
 

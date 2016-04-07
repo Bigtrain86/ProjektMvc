@@ -12,7 +12,7 @@ namespace projektmvc.Models
 
         public int Price { get; private set; }
 
-        public int Numbers { get; private set; }
+        public int Numbers { get; set; }
 
         public OrderItem(int id, string name, int price, int number)
         {
