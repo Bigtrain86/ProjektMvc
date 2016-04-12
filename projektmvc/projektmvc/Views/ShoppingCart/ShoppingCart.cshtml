@@ -34,7 +34,6 @@
             @Html.DisplayFor(modelItem => item.Price)
         </td>
 		<td>
-		<td>
 			<form class="form-inline" method="post" action="/ShoppingCart/Edit">
 				<input type="number" name="amount" class="input-sm" min="1" value="@Html.DisplayFor(modelItem => item.Numbers)" />
 				<input type="hidden" name="pId" value="@item.Id" />
