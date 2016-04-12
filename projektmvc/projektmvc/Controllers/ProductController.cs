@@ -120,6 +120,7 @@ namespace projektmvc.Controllers
                 {
                     if (m.Id == IdForm)
                     {
+                        
                         ProductModel.EditProduct(m, name, model, PriceForm, StockForm, link);
                         ViewBag.Message = "Product updated successfully.";
                         break; //Sluta när den har ändrats

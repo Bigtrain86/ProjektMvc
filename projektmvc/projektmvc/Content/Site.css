@@ -10,6 +10,7 @@ body {
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+    
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
@@ -127,11 +128,14 @@ footer p {
         font-size: 1.25em;
     }
 
-    .table {
+    .table{
         color: white;
         text-shadow: 3px;
         width: 100%;
+        
+        
     }
+
 
     h1 {
         text-align: center;
@@ -165,16 +169,23 @@ h2, h3 {
 p
 {
     color:white;
-    text-shadow: 2px 2px 4px #000000;
+    text-shadow: 2px 2px
+     4px #000000;
 }
 .form-group
 {
     color:white;
     text-shadow: 2px 2px 4px #000000;
 }
-
-
-
+strong > a
+{
+    color:white;
+}
+.table-responsive
+{
+    overflow-x: auto;
+    margin: 0 auto;
+}
 }
 
 

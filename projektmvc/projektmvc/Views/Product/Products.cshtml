@@ -11,79 +11,97 @@
     {
         @Html.ActionLink("Create", "Create")
     }
-    
+
 </p>
-
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Model)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Price)
-        </th>
-        <th>
-            In Stock
-        </th>
-        <th>
-            Image
-        </th>
-        <th></th>
-    </tr>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="table-responsive">
+                <div class ="table table-bordered table-hover">
+                    <table class="table" style="background-color:grey">
 
 
-
-    @foreach (var item in Model)
-    {
-         
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Name)
-
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Model)
-                    </td>
-                    <td>
-                        $@Html.DisplayFor(modelItem => item.Price)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.NumberInStock)
-                    </td>
-                    <td>
-                        <img src="@item.ImageLink" width="200" height="100" />
-
-                    </td>
-
-                    <td>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Name)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Model)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Price)
+                            </th>
+                            <th>
+                                In Stock
+                            </th>
+                            <th>
+                                Image
+                            </th>
+                            <th></th>
+                        </tr>
 
 
-    
 
-            <!--Lägg till en action link för att lägga till i kundvagn-->
-        @if ((bool)Session["LoginStatus"])
-        {
-            @Html.ActionLink("Add to cart", "AddToCart", "ShoppingCart", new { productId = item.Id, productName = item.Name, productPrice = item.Price }, null)
-            <br />
-        }
+                        @foreach (var item in Model)
+                        {
 
-            <!--Ev. lägg till en action link för att visa mer information-->
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Name)
 
-        @if ((string)Session["username"] == "admin")
-        {
-            @Html.ActionLink("Delete", "Delete", "Product", new { productId = item.Id }, null);
-            <br />
-                @Html.ActionLink("Edit", "Edit", "Product", new { prodId = item.Id, prodName = item.Name, prodModel = item.Model, prodPrice = item.Price, prodStock = item.NumberInStock, prodLink = item.ImageLink }, null);
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Model)
+                                </td>
+                                <td>
+                                    $@Html.DisplayFor(modelItem => item.Price)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NumberInStock)
+                                </td>
+                                <td>
+                                    <img src="@item.ImageLink" width="200" height="100" class="img-responsive" />
 
-        }
-        </td>
-    </tr>
-    }
+                                </td>
 
-</table>
+                                <td>
+
+
+
+                                    <strong>
+                                        <!--Lägg till en action link för att lägga till i kundvagn-->
+                                        @if ((bool)Session["LoginStatus"])
+                                        {
+                                            @Html.ActionLink("Add to cart", "AddToCart", "ShoppingCart", new { productId = item.Id, productName = item.Name, productPrice = item.Price }, null)
+
+                                            <br />
+                                        }
+
+                                        <!--Ev. lägg till en action link för att visa mer information-->
+
+                                        @if ((string)Session["username"] == "admin")
+                                        {
+                                            @Html.ActionLink("Delete", "Delete", "Product", new { productId = item.Id }, null);
+                                            <br />
+                                            @Html.ActionLink("Edit", "Edit", "Product", new { prodId = item.Id, prodName = item.Name, prodModel = item.Model, prodPrice = item.Price, prodStock = item.NumberInStock, prodLink = item.ImageLink }, null);
+
+                                        }
+                                    </strong>
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+</div>
+            </div>  
+        </div>
+    </div>
+    </div>
+
+
+
+
+
 
 
 
