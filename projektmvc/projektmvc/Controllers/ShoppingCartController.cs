@@ -190,8 +190,11 @@ namespace projektmvc.Controllers
 					}
 					else
 					{
-						//Gör något för att visa att det inte gick
-					}
+                        // Om det inte finns så många som man vill lägga till
+                        //lägg till så många som faktiskt finns
+                        OrderItem.EditNumberOfItems(item, NumInStock);
+                        //Gör något för att visa att det inte gick
+                    }
 				}
 			}
 

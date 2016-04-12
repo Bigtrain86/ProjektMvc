@@ -44,7 +44,7 @@ namespace projektmvc.Models
             Model = model;
             Price = price;
             NumberInStock = numInStock;
-            ImageLink = "http://clipartfreefor.com/cliparts/files2/car-20clip-20art-fast-car-clipart-black-and-white.png";
+            ImageLink = "http://png.clipart.me/graphics/thumbs/190/drift-car-symbol_190755995.jpg";
         }
     }
 

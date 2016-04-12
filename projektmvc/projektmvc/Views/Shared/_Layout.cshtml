@@ -17,6 +17,18 @@
     {
         ViewBag.InCart = 0;
     }
+
+    @if (Session["username"] != null)
+    {
+        string user = (string)Session["username"];
+
+        ViewBag.User = user;
+    }
+    else
+    {
+        ViewBag.User = "";
+    }
+
     <div class="navbar navbar-default role=" navigation">
         <a class="navbar-brand" href="index.html"></a>
         <div class="container">
@@ -38,7 +50,7 @@
                     <li><a href="/Default/Home">Home</a></li>
                     <li><a href="/Product/Products">Products</a></li>
                     <li><a href="/Default/Index">Log In</a></li>
-                    <li><a href="/ShoppingCart/ShoppingCart">@ViewBag.InCart<span class="glyphicon glyphicon-shopping-cart"></span></a></li>
+                    <li><a href="/ShoppingCart/ShoppingCart">@ViewBag.InCart<span class="glyphicon glyphicon-shopping-cart"></span>@ViewBag.User</a></li>
                     <li></li>
                 </ul>
                 <form class="navbar-form navbar-right" role="search" action="/Default/Search">

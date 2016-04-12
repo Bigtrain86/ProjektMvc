@@ -42,6 +42,7 @@ namespace projektmvc.Controllers
                 //logga ut
                 Session["LoginStatus"] = false;
                 Session["username"] = null;
+                Session["InCart"] = null;
             }
             else
             {
